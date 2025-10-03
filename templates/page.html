@@ -52,7 +52,7 @@
   		{% elif config.extra.author -%}
   			<span>{{ config.extra.expressions.written_by | default(value="Written by") }}</span> {{ config.extra.author }}<br>
   		{%- endif %}
-  		<span>{{ config.extra.expressions.on | default(value="on")}}&nbsp;</span><time datetime="{{ page.date }}">{{ page.date | date(format=config.extra.timeformat | default(value="%B %e, %Y"))}}</time>
+  		<span>{{ config.extra.expressions.on | default(value="on")}}&nbsp;</span><time datetime="{{ page.date }}">{{ page.date | date(format=config.extra.timeformat | default(value="%B %e, %Y"), locale=config.extra.date_locale | default(value="en_US"))}}</time>
   	</div>
   	<h1 class="post-title">{{ page.title }}</h1>
   	<div class="post-line"></div>

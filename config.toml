@@ -38,6 +38,7 @@ email  = "aaranxu@outlook.com"
 
 # Set date format in the site
 timeformat = "%B %e, %Y" # e.g. June 14, 2021
+date_locale = "en_US" # e.g. en_US
 
 # Whether to support KaTeX globally
 katex = false

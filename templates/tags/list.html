@@ -52,7 +52,7 @@
 			<span class="tags-post-meta">
 				<time datetime="{{ page.date }}">
 					{{ page.date | date(format=config.extra.timeformat |
-					default(value="%B %e, %Y")) }}
+					default(value="%B %e, %Y"), locale=config.extra.date_locale | default(value="en_US")) }}
 				</time>
 			</span>
 		</a>
