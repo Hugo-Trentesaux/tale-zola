@@ -35,6 +35,7 @@ highlight_theme = "base16-ocean-light"
 author = "Aaran Xu"
 github = "https://github.com/aaranxu"
 email  = "aaranxu@outlook.com"
+enable_pinning = true
 
 # Set date format in the site
 timeformat = "%B %e, %Y" # e.g. June 14, 2021
