@@ -42,6 +42,6 @@
 	{{ section.content | safe }}
 </div>
 <div class="pagination">
-	<a href="#" class="top">Top</a>
+	<a href="#" class="top">{{ config.extra.expressions.top | default(value="Top") }}</a>
 </div>
 {% endblock content %}
