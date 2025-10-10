@@ -33,6 +33,11 @@
     <p>
       {%- if page.summary -%}
       {{ page.summary | safe }}
+      {% elif page.extra.theme and page.extra.contrainte -%}
+      <ul class="nostyle">
+        <li>Thème : {{page.extra.theme}}</li>
+        <li>Contrainte : {{page.extra.contrainte}}</li>
+      </ul>
       {% else -%}
       {{ page.content | striptags | truncate(length=280) | safe }}
       {%- endif -%}
