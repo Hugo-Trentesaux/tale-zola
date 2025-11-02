@@ -37,6 +37,7 @@
       <ul class="nostyle">
         <li>Thème : {{page.extra.theme}}</li>
         <li>Contrainte : {{page.extra.contrainte}}</li>
+        <li>{{page.content | wordcount}} mots</li>
       </ul>
       {% else -%}
       {{ page.content | striptags | truncate(length=280) | safe }}
