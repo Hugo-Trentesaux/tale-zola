@@ -42,7 +42,13 @@
   {{ macros::seo(title=title, og_title=og_title, author=author, description=description, site_url=site_url, image=image, image_height=image_height, image_width=image_width, web_type=web_type) }}
 {%- endblock seo %}
 
-
+{% block extrahead %}
+	{% if page.extra.css %}
+		{% for style in page.extra.css %}
+		  <link rel="stylesheet" href="{{ get_url(path=style) | safe }}.css">
+		{% endfor %}
+	{% endif %}
+{% endblock extrahead %}
 
 {% block content %}
   <div class="post">
