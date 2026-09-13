@@ -39,7 +39,7 @@
 
   {% set web_type = "BlogPosting" -%}
   
-  {{ macros::seo(title=title, og_title=og_title, author=author, description=description, site_url=site_url, image=image, image_height=image_height, image_width=image_width, web_type=web_type) }}
+  {% include "partials/seo.html" %}
 {%- endblock seo %}
 
 {% block extrahead %}
@@ -54,11 +54,11 @@
   <div class="post">
   	<div class="post-info">
   		{% if page.extra.author -%}
-  			<span>{{ config.extra.expressions.written_by | default(value="Written by") }}</span> {{ page.extra.author }}<br>
+  			<span>{{ config.extra.expressions?.written_by | default(value="Written by") }}</span> {{ page.extra.author }}<br>
   		{% elif config.extra.author -%}
-  			<span>{{ config.extra.expressions.written_by | default(value="Written by") }}</span> {{ config.extra.author }}<br>
+  			<span>{{ config.extra.expressions?.written_by | default(value="Written by") }}</span> {{ config.extra.author }}<br>
   		{%- endif %}
-  		<span>{{ config.extra.expressions.on | default(value="on")}}&nbsp;</span><time datetime="{{ page.date }}">{{ page.date | date(format=config.extra.timeformat | default(value="%B %e, %Y"), locale=config.extra.date_locale | default(value="en_US"))}}</time>
+  		<span>{{ config.extra.expressions?.on | default(value="on")}}&nbsp;</span><time datetime="{{ page.date }}">{{ page.date | date(format=config.extra.timeformat or "MMMM d, y", locale=config.extra.date_locale or "en") }}</time>
   	</div>
   	<h1 class="post-title">{{ page.title }}</h1>
   	<div class="post-line"></div>
@@ -71,7 +71,7 @@
   	{% if page.later -%}
   		<a href="{{ page.later.permalink | safe }}" class="left arrow">&#8592;</a>
   	{%- endif %}
-		<a href="#" class="top">{{ config.extra.expressions.top | default(value="Top") }}</a>
+		<a href="#" class="top">{{ config.extra.expressions?.top | default(value="Top") }}</a>
 		{% if page.earlier -%}
 			<a href="{{ page.earlier.permalink | safe }}" class="right arrow">&#8594;</a>
 		{%- endif %}

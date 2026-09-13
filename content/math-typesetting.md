@@ -24,7 +24,7 @@ In this example we will be using [KaTeX](https://katex.org/)
 
 ```bash
 {% if page.extra.katex or section.extra.katex or config.extra.katex %}
-  {% include 'katex.html' %}
+  {% include "partials/katex.html" %}
 {% endif %}
 ```
 

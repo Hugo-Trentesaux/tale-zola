@@ -5,7 +5,7 @@
 {% block seo -%}
   {{ super() }}
 
-  {%- set tags = config.extra.expressions.tags | default(value="Tags") -%}
+  {%- set tags = config.extra.expressions?.tags | default(value="Tags") -%}
 
   {% set og_title = tags -%}
 	
@@ -17,7 +17,7 @@
 
   {% set web_type = "WebPage" -%}
   
-  {{ macros::seo(title=title, og_title=og_title, author=author, description=description, site_url=site_url, image=image, image_height=image_height, image_width=image_width, web_type=web_type) }}
+  {% include "partials/seo.html" %}
 {%- endblock seo %}
 
 
@@ -25,7 +25,7 @@
 {% block content %}
 <div class="tags">
 	<div class="tags-header">
-		<h2 class="tags-header-title">{{ config.extra.expressions.tags | default(value="Tags") }}</h2>
+		<h2 class="tags-header-title">{{ config.extra.expressions?.tags | default(value="Tags") }}</h2>
 		<div class="tags-header-line"></div>
 	</div>
 	<div class="tags-clouds">
@@ -51,8 +51,7 @@
 			</div>
 			<span class="tags-post-meta">
 				<time datetime="{{ page.date }}">
-					{{ page.date | date(format=config.extra.timeformat |
-					default(value="%B %e, %Y"), locale=config.extra.date_locale | default(value="en_US")) }}
+					{{ page.date | date(format=config.extra.timeformat or "MMMM d, y", locale=config.extra.date_locale or "en") }}
 				</time>
 			</span>
 		</a>
