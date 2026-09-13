@@ -1,0 +1,23 @@
+{# Was a macro in macros.html. Zola 0.23 (Tera v2) removed macros.
+   A component would not work here: components are hygienic and cannot see
+   `config`, `page` or `paginator`, which this block needs. An `include`
+   inherits the caller's context, so it is the faithful translation. #}
+{%- if config.extra.footer?.start_year -%}
+  	{%- set start_year = config.extra.footer?.start_year -%}
+  {%- else -%}
+  	{%- set start_year = now() | date(format="%Y") -%}
+  {%- endif -%}
+  
+  {%- if config.extra.footer?.end_year -%}
+  	{%- set end_year = config.extra.footer?.end_year -%}
+  {%- else -%}
+  	{%- set end_year = now() | date(format="%Y") -%}
+  {%- endif -%}
+  
+  {%- if start_year == end_year -%}
+  	{%- set year = start_year -%}
+  {%- else -%}
+  	{%- set year = start_year ~ "-" ~ end_year -%}
+  {%- endif -%}
+
+  <time datetime="{{ now() }}">{{ year }}</time>

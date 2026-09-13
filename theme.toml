@@ -2,7 +2,7 @@ name = "tale-zola"
 description = "Tala-Zola is a minimal Zola theme helping you to build a nice and seo-ready blog."
 license = "MIT"
 homepage = "https://github.com/aaranxu/tale-zola"
-min_version = "0.13.0"
+min_version = "0.23.0"
 demo = "https://tale-zola.netlify.app/"
 
 [extra]
